@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>AI_贝叶斯网络 | vv_Note</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="w收拾收拾 模型 在tail-to-tail中，当中间随机变量给定时，另外两个随机变量相互独立。  一父二子   在head-to-tail中，当中间随机变量给定时，另外两个随机变量相互独立。  父子孙   在head-to-head中，当中间随机变量没有给定时，另外两个随机变量相互独立。  emm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI_贝叶斯网络">
+<meta property="og:url" content="http://example.com/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/index.html">
+<meta property="og:site_name" content="vv_Note">
+<meta property="og:description" content="w收拾收拾 模型 在tail-to-tail中，当中间随机变量给定时，另外两个随机变量相互独立。  一父二子   在head-to-tail中，当中间随机变量给定时，另外两个随机变量相互独立。  父子孙   在head-to-head中，当中间随机变量没有给定时，另外两个随机变量相互独立。  emm">
+<meta property="og:locale">
+<meta property="og:image" content="http://example.com/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/Users/comma/AppData/Roaming/Typora/typora-user-images/image-20240507114405779.png">
+<meta property="og:image" content="http://example.com/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/Users/comma/AppData/Roaming/Typora/typora-user-images/image-20240509171056495.png">
+<meta property="article:published_time" content="2024-05-07T03:22:54.000Z">
+<meta property="article:modified_time" content="2024-05-11T00:22:48.025Z">
+<meta property="article:author" content="vv">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/Users/comma/AppData/Roaming/Typora/typora-user-images/image-20240507114405779.png">
+  
+    <link rel="alternate" href="/atom.xml" title="vv_Note" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">vv_Note</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">初次拜访请先移步文章“关于为什么我开一个博客”。每周六23:00更新。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">主页</a>
+        
+          <a class="main-nav-link" href="/archives">全部文章</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-AI-贝叶斯网络" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/" class="article-date">
+  <time class="dt-published" datetime="2024-05-07T03:22:54.000Z" itemprop="datePublished">2024-05-07</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      AI_贝叶斯网络
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>w收拾收拾</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><ul>
+<li><p>在tail-to-tail中，当中间随机变量给定时，另外两个随机变量相互独立。</p>
+<ul>
+<li>一父二子</li>
+</ul>
+</li>
+<li><p>在head-to-tail中，当中间随机变量给定时，另外两个随机变量相互独立。</p>
+<ul>
+<li>父子孙</li>
+</ul>
+</li>
+<li><p>在head-to-head中，当中间随机变量<strong>没有给定</strong>时，另外两个随机变量相互独立。</p>
+<ul>
+<li>emm</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/Users\comma\AppData\Roaming\Typora\typora-user-images\image-20240507114405779.png" alt="image-20240507114405779"></p>
+<p><img src="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/Users\comma\AppData\Roaming\Typora\typora-user-images\image-20240509171056495.png" alt="image-20240509171056495"></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/" data-id="clw1dxu3300011suh2g1c0s6z" data-title="AI_贝叶斯网络" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/07/wsl%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          wsl的操作记录
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">OS笔记-CH-8-死锁</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9A%E6%9C%9F%E6%80%BB%E7%BB%93/">定期总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/">技术备忘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94%E5%BD%92%E6%A1%A3/">随笔归档</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94%E5%BD%92%E6%A1%A3/%E5%85%B3%E4%BA%8E%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BC%80%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">关于为什么我开一个博客</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL-writing/" rel="tag">TOEFL_writing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" rel="tag">月计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TOEFL-writing/" style="font-size: 20px;">TOEFL_writing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/os/" style="font-size: 15px;">os</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" style="font-size: 10px;">月计划</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2024/05/07/wsl%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">wsl的操作记录</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/">AI_贝叶斯网络</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/">OS笔记-CH-8-死锁</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/05/gdb%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">gdb的基本使用方法</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/04/TOEFL-notes-%E7%BB%BC%E5%90%88%E5%86%99%E4%BD%9C%EF%BC%885-4%EF%BC%89/">TOEFL_notes_综合写作（5.4）(未整理)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2024 vv<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">主页</a>
+  
+    <a href="/archives" class="mobile-nav-link">全部文章</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

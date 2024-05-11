@@ -6,27 +6,27 @@
   
   <title>特征工程 | vv_Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="0. 关于特征工程的简单介绍Feature engineering is a machine learning technique that leverages data to create new variables that aren’t in the training set. It can produce new features for both supervised and unsup">
+  <meta name="description" content="[TOC] 0. 关于特征工程的简单介绍Feature engineering is a machine learning technique that leverages data to create new variables that aren’t in the training set. It can produce new features for both supervised and">
 <meta property="og:type" content="article">
 <meta property="og:title" content="特征工程">
 <meta property="og:url" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/index.html">
 <meta property="og:site_name" content="vv_Note">
-<meta property="og:description" content="0. 关于特征工程的简单介绍Feature engineering is a machine learning technique that leverages data to create new variables that aren’t in the training set. It can produce new features for both supervised and unsup">
+<meta property="og:description" content="[TOC] 0. 关于特征工程的简单介绍Feature engineering is a machine learning technique that leverages data to create new variables that aren’t in the training set. It can produce new features for both supervised and">
 <meta property="og:locale">
-<meta property="og:image" content="http://p5.itc.cn/q_70/images03/20200923/ce8e310347fe4eb0b673aa55419a54aa.jpeg">
-<meta property="og:image" content="c:\Users\comma\AppData\Roaming\Typora\typora-user-images\image-20240330202959968.png">
-<meta property="og:image" content="https://31.toocle.com/Upload/zk/glbk/2008926122520640778017.jpg">
-<meta property="og:image" content="https://img1.baidu.com/it/u=2993823116,1691525138&fm=253&fmt=auto&app=138&f=JPEG?w=982&h=500">
-<meta property="og:image" content="c:\Users\comma\AppData\Roaming\Typora\typora-user-images\image-20240330193524851.png">
-<meta property="og:image" content="https://pic.rmb.bdstatic.com/bjh/f3d1efe54300ed22546617e73c2f773e4137.png@h_1280">
-<meta property="og:image" content="https://img1.baidu.com/it/u=3797804661,3242247506&fm=253&fmt=auto&app=138&f=PNG?w=640&h=476">
-<meta property="og:image" content="https://img1.baidu.com/it/u=2366215398,2551236520&fm=253&fmt=auto&app=138&f=PNG?w=667&h=500">
+<meta property="og:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/1.png">
+<meta property="og:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/2.png">
+<meta property="og:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/3.jpg">
+<meta property="og:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/4.png">
+<meta property="og:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/5.png">
+<meta property="og:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/6.png">
+<meta property="og:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/7.png">
+<meta property="og:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/8.jpg">
 <meta property="article:published_time" content="2024-04-29T17:10:56.000Z">
-<meta property="article:modified_time" content="2024-04-29T17:19:21.527Z">
+<meta property="article:modified_time" content="2024-05-11T01:03:15.913Z">
 <meta property="article:author" content="vv">
 <meta property="article:tag" content="深度学习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://p5.itc.cn/q_70/images03/20200923/ce8e310347fe4eb0b673aa55419a54aa.jpeg">
+<meta name="twitter:image" content="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/1.png">
   
     <link rel="alternate" href="/atom.xml" title="vv_Note" type="application/atom+xml">
   
@@ -65,20 +65,20 @@
       <nav id="main-nav">
         <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
         
-          <a class="main-nav-link" href="/">Home</a>
+          <a class="main-nav-link" href="/">主页</a>
         
-          <a class="main-nav-link" href="/archives">Archives</a>
+          <a class="main-nav-link" href="/archives">全部文章</a>
         
       </nav>
       <nav id="sub-nav">
         
         
-          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+          <a class="nav-icon" href="/atom.xml" title="RSS 订阅"><span class="fa fa-rss"></span></a>
         
-        <a class="nav-icon nav-search-btn" title="Suche"><span class="fa fa-search"></span></a>
+        <a class="nav-icon nav-search-btn" title="搜索"><span class="fa fa-search"></span></a>
       </nav>
       <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Suche"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="搜索"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
       </div>
     </div>
   </div>
@@ -111,13 +111,14 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h2 id="0-关于特征工程的简单介绍"><a href="#0-关于特征工程的简单介绍" class="headerlink" title="0. 关于特征工程的简单介绍"></a>0. 关于特征工程的简单介绍</h2><p>Feature engineering is a machine learning technique that leverages data to create new variables that aren’t in the <a target="_blank" rel="noopener" href="https://builtin.com/data-science/train-test-split">training set</a>. It can produce new features for both supervised and <a target="_blank" rel="noopener" href="https://builtin.com/machine-learning/unsupervised-learning">unsupervised learning</a>, with the goal of simplifying and speeding up data transformations while also enhancing model accuracy. Feature engineering is required when working with <a target="_blank" rel="noopener" href="https://builtin.com/machine-learning/machine-learning-models-explained">machine learning models</a>. Regardless of the data or architecture, a terrible feature will have a direct impact on your model.</p>
+        <p>[TOC]</p>
+<h2 id="0-关于特征工程的简单介绍"><a href="#0-关于特征工程的简单介绍" class="headerlink" title="0. 关于特征工程的简单介绍"></a>0. 关于特征工程的简单介绍</h2><p>Feature engineering is a machine learning technique that leverages data to create new variables that aren’t in the <a target="_blank" rel="noopener" href="https://builtin.com/data-science/train-test-split">training set</a>. It can produce new features for both supervised and <a target="_blank" rel="noopener" href="https://builtin.com/machine-learning/unsupervised-learning">unsupervised learning</a>, with the goal of simplifying and speeding up data transformations while also enhancing model accuracy. Feature engineering is required when working with <a target="_blank" rel="noopener" href="https://builtin.com/machine-learning/machine-learning-models-explained">machine learning models</a>. Regardless of the data or architecture, a terrible feature will have a direct impact on your model.</p>
 <p>特征工程是一种机器学习技术，它利用数据创建不在训练集中的新变量。它可以为监督和非监督式学习生成新的特性，目的是简化和加快数据转换，同时提高模型的准确性。在处理机器学习模型时需要特征工程。无论是数据还是架构，一个糟糕的特性都会对您的模型产生直接的影响。</p>
 <p><strong>特征：</strong>原始数据某个方面的数值表示，特征是数据和模型之间的纽带。</p>
 <p><strong>定义：</strong>从原始数据中提取特征并将其转换为适合机器学习的格式，从而改善机器学习性能（提高预测准确度），同时减少运行时间。</p>
 <p><strong>目的：</strong>机器学习的一种优化，提高机器学习性能</p>
 <p><strong>流程：</strong></p>
-<p><img src="http://p5.itc.cn/q_70/images03/20200923/ce8e310347fe4eb0b673aa55419a54aa.jpeg" alt="img"></p>
+<p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/1.png" alt="image-20240511085820961"></p>
 <p>Feature engineering consists of various processes:</p>
 <ul>
 <li><strong>Feature creation（创建）</strong>: Creating features involves <strong>creating new variables which will be most helpful for our model.</strong> This can be adding or removing some features. </li>
@@ -173,7 +174,7 @@
 </ol>
 <p>在回归分析等统计建模中，对数变换常用于改善自变量和因变量之间的线性关系。如果数据呈现指数增长或者具有非线性关系，对数变换可以帮助线性化这种关系，从而满足线性模型的假设。</p>
 <p><strong>关于skewed data：</strong></p>
-<p><img src="C:\Users\comma\AppData\Roaming\Typora\typora-user-images\image-20240330202959968.png" alt="image-20240330202959968"></p>
+<p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/2.png" alt="image-20240330202959968"></p>
 <p>大概就是中位数左右的数据量差太多，没仔细研究（）</p>
 <p>总之curve歪了图上这种向左歪的是正偏斜，正偏斜是对数变换可以处理的。（负偏斜不行）</p>
 <h3 id="特征缩放：也是为了把数据变得更整齐"><a href="#特征缩放：也是为了把数据变得更整齐" class="headerlink" title="特征缩放：也是为了把数据变得更整齐"></a>特征缩放：也是为了把数据变得更整齐</h3><p>人话就是：想办法让特征之间的区别更鲜明好distinguish一点</p>
@@ -285,7 +286,6 @@
 <li><p>评估方式：比较降维前后学习器的性能，可视化技术直观</p>
 </li>
 </ul>
-<p>![aaadec4d91d875538bc96abbf92be12](C:\Users\comma\Documents\WeChat Files\vivi1234562008\FileStorage\Temp\aaadec4d91d875538bc96abbf92be12.jpg)</p>
 <h4 id="主成分分析（PCA）"><a href="#主成分分析（PCA）" class="headerlink" title="主成分分析（PCA）"></a>主成分分析（PCA）</h4><ul>
 <li><p>最常用的降维方法之一</p>
 </li>
@@ -350,40 +350,40 @@
 <td>直方图, 箱线图</td>
 </tr>
 </tbody></table>
-<h4 id="定类数据（Nominal-Data）"><a href="#定类数据（Nominal-Data）" class="headerlink" title="定类数据（Nominal Data）"></a><strong>定类数据（Nominal Data）</strong></h4><ul>
+<h4 id="定类数据（Nominal-Data）"><a href="#定类数据（Nominal-Data）" class="headerlink" title="定类数据（Nominal Data）"></a>定类数据（Nominal Data）</h4><ul>
 <li><strong>属性</strong>：数据是离散的且无序的。这意味着数据用于标记或分类，但分类之间没有顺序。</li>
 <li><strong>例子</strong>：种类（如血型、性别、国籍）。</li>
 <li><strong>描述性统计</strong>：频率（各类别出现的次数）、占比（各类别在总数中的比例）、众数（出现次数最多的类别）。</li>
 <li><strong>图表</strong>：条形图、饼图。</li>
 </ul>
-<h4 id="定序数据（Ordinal-Data）"><a href="#定序数据（Ordinal-Data）" class="headerlink" title="定序数据（Ordinal Data）"></a><strong>定序数据（Ordinal Data）</strong></h4><ul>
+<h4 id="定序数据（Ordinal-Data）"><a href="#定序数据（Ordinal-Data）" class="headerlink" title="定序数据（Ordinal Data）"></a>定序数据（Ordinal Data）</h4><ul>
 <li><strong>属性</strong>：数据是有序类别的，即数据的分类不仅将对象分开，分类之间还有一个明确的排序。</li>
 <li><strong>例子</strong>：考试等级（如A、B、C等级）。</li>
 <li><strong>描述性统计</strong>：频率、众数、中位数（将数据分为上下两半的点）、百分数。</li>
 <li><strong>图表</strong>：条形图、饼图、茎叶图。</li>
 </ul>
-<h4 id="定距数据（Interval-Data）"><a href="#定距数据（Interval-Data）" class="headerlink" title="定距数据（Interval Data）"></a><strong>定距数据（Interval Data）</strong></h4><ul>
+<h4 id="定距数据（Interval-Data）"><a href="#定距数据（Interval-Data）" class="headerlink" title="定距数据（Interval Data）"></a>定距数据（Interval Data）</h4><ul>
 <li><strong>属性</strong>：数据是数字的，且数字之间的差别是有意义的。但是没有真正的“零点”，这意味着不能对数据进行乘除运算。</li>
 <li><strong>例子</strong>：摄氏度、年份。</li>
 <li><strong>描述性统计</strong>：频率、众数、中位数、均值（算术平均值）、标准差（数据分布的程度）。</li>
 <li><strong>图表</strong>：条形图、饼图、茎叶图、箱线图、直方图。</li>
 </ul>
-<h4 id="定比数据（Ratio-Data）"><a href="#定比数据（Ratio-Data）" class="headerlink" title="定比数据（Ratio Data）"></a><strong>定比数据（Ratio Data）</strong></h4><ul>
+<h4 id="定比数据（Ratio-Data）"><a href="#定比数据（Ratio-Data）" class="headerlink" title="定比数据（Ratio Data）"></a>定比数据（Ratio Data）</h4><ul>
 <li><strong>属性</strong>：数据是连续的，可以进行加减乘除运算。这是因为定比数据有一个真正的零点。</li>
 <li><strong>例子</strong>：金钱、重量。</li>
 <li><strong>描述性统计</strong>：均值、标准差。</li>
 <li><strong>图表</strong>：直方图、箱线图。</li>
 </ul>
 <p>某些统计测试和图表只适用于特定类型的数据。了解这些等级可以帮助研究者或数据分析师选择合适的方法来分析他们的数据。</p>
-<h3 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h3><h4 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h4><p><img src="https://31.toocle.com/Upload/zk/glbk/2008926122520640778017.jpg" alt="img"></p>
-<h4 id="核密度图"><a href="#核密度图" class="headerlink" title="核密度图"></a>核密度图</h4><p><img src="https://img1.baidu.com/it/u=2993823116,1691525138&fm=253&fmt=auto&app=138&f=JPEG?w=982&h=500" alt="img"></p>
+<h3 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h3><h4 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/3.jpg"></p>
+<h4 id="核密度图"><a href="#核密度图" class="headerlink" title="核密度图"></a>核密度图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/4.png"></p>
 <p>核密度图本质上是根据有限的数据样本，运用核密度函数，对整体数据的密度进行估计；即已知有限的数据样本和一个核函数，输出整体数据的概率密度，并通过图形展示出结果。</p>
-<p><img src="C:\Users\comma\AppData\Roaming\Typora\typora-user-images\image-20240330193524851.png" alt="image-20240330193524851"></p>
-<h4 id="箱型图"><a href="#箱型图" class="headerlink" title="箱型图"></a>箱型图</h4><p><img src="https://pic.rmb.bdstatic.com/bjh/f3d1efe54300ed22546617e73c2f773e4137.png@h_1280" alt="img"></p>
+<p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/5.png"></p>
+<h4 id="箱型图"><a href="#箱型图" class="headerlink" title="箱型图"></a>箱型图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/6.png"></p>
 <p>它主要用于反映原始数据分布的特征，还可以进行多组数据分布特征的比 较。箱线图的绘制方法是：先找出一组数据的上边缘、下边缘、中位数和两个四分位数；然后， 连接两个四分位数画出箱体；再将上边缘和下边缘与箱体相连接，中位数在箱体中间。</p>
 <p>箱形图判断异常值的标准以<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9B%E5%88%86%E4%BD%8D%E6%95%B0/0?fromModule=lemma_inlink">四分位数</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9B%E5%88%86%E4%BD%8D%E8%B7%9D/0?fromModule=lemma_inlink">四分位距</a>为基础，四分位数具有一定的耐抗性，多达25%的数据可以变得任意远而不会很大地扰动四分位数，所以异常值不能对这个标准施加影响，箱形图识别异常值的结果比较客观。由此可见，箱形图在识别异常值方面有一定的优越性。</p>
-<h4 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h4><p><img src="https://img1.baidu.com/it/u=3797804661,3242247506&fm=253&fmt=auto&app=138&f=PNG?w=640&h=476" alt="img"></p>
-<h4 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h4><p><img src="https://img1.baidu.com/it/u=2366215398,2551236520&fm=253&fmt=auto&app=138&f=PNG?w=667&h=500" alt="img"></p>
+<h4 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/7.png"></p>
+<h4 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/8.jpg"></p>
 <p>散点图是指在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/2625498?fromModule=lemma_inlink">回归分析</a>中，数据点在直角坐标系平面上的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%9B%BE/10396618?fromModule=lemma_inlink">分布图</a>，散点图表示因变量随<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%87%AA%E5%8F%98%E9%87%8F/6895256?fromModule=lemma_inlink">自变量</a>而<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%98%E5%8C%96/33159?fromModule=lemma_inlink">变化</a>的大致趋势，据此可以选择合适的函数<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E6%95%B0/0?fromModule=lemma_inlink">对数</a>据点进行<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8B%9F%E5%90%88/7505059?fromModule=lemma_inlink">拟合</a>。</p>
 <p>用两组数据构成多个坐标点，考察坐标点的分布，判断两变量之间是否存在某种关联或总结坐标点的分布模式。散点图将序列显示为一组点。值由点在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%BE%E8%A1%A8/1252386?fromModule=lemma_inlink">图表</a>中的位置表示。类别由图表中的不同标记表示。<strong>散点图通常用于比较跨类别的聚合数据。（描述变量之间的关系）</strong></p>
 <h2 id="4-参考备忘"><a href="#4-参考备忘" class="headerlink" title="4. 参考备忘"></a>4. 参考备忘</h2><p><a target="_blank" rel="noopener" href="https://builtin.com/articles/feature-engineering">Feature Engineering Explained | Built In</a></p>
@@ -396,7 +396,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" data-id="clvl8br910003pguh78yh8s4s" data-title="特征工程" class="article-share-link"><span class="fa fa-share">Teilen</span></a>
+      <a data-url="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" data-id="clw1dxu46001w1suhcqy5ce8w" data-title="特征工程" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
       
       
@@ -409,7 +409,7 @@
 <nav id="article-nav">
   
     <a href="/2024/04/30/week1-Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Neuer</strong>
+      <strong class="article-nav-caption">前一篇</strong>
       <div class="article-nav-title">
         
           week1 Hands-on Introduction to Linux Commands and Shell Scripting
@@ -419,7 +419,7 @@
   
   
     <a href="/2024/04/30/win11-annoyances-collection/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Älter</strong>
+      <strong class="article-nav-caption">后一篇</strong>
       <div class="article-nav-title">win11_annoyances collection</div>
     </a>
   
@@ -435,7 +435,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Kategorien</h3>
+    <h3 class="widget-title">分类</h3>
     <div class="widget">
       <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%AE%9A%E6%9C%9F%E6%80%BB%E7%BB%93/">定期总结</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/">技术备忘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94%E5%BD%92%E6%A1%A3/">随笔归档</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%8F%E7%AC%94%E5%BD%92%E6%A1%A3/%E5%85%B3%E4%BA%8E%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BC%80%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/">关于为什么我开一个博客</a></li></ul></li></ul>
     </div>
@@ -445,7 +445,7 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
+    <h3 class="widget-title">标签</h3>
     <div class="widget">
       <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL-writing/" rel="tag">TOEFL_writing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" rel="tag">月计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
     </div>
@@ -455,16 +455,16 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
+    <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TOEFL-writing/" style="font-size: 20px;">TOEFL_writing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/os/" style="font-size: 10px;">os</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" style="font-size: 10px;">月计划</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a>
+      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TOEFL-writing/" style="font-size: 20px;">TOEFL_writing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/os/" style="font-size: 15px;">os</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" style="font-size: 10px;">月计划</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a>
     </div>
   </div>
 
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archiv</h3>
+    <h3 class="widget-title">归档</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
     </div>
@@ -474,28 +474,28 @@
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">letzter Beitrag</h3>
+    <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
         
           <li>
+            <a href="/2024/05/07/wsl%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">wsl的操作记录</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/">AI_贝叶斯网络</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/">OS笔记-CH-8-死锁</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/05/gdb%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">gdb的基本使用方法</a>
+          </li>
+        
+          <li>
             <a href="/2024/05/04/TOEFL-notes-%E7%BB%BC%E5%90%88%E5%86%99%E4%BD%9C%EF%BC%885-4%EF%BC%89/">TOEFL_notes_综合写作（5.4）(未整理)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/04/TOEFL-notes-%E5%AD%A6%E6%9C%AF%E8%AE%A8%E8%AE%BA%EF%BC%88%E6%94%BF%E5%BA%9C%EF%BC%89/">TOEFL_notes_学术讨论（政府）(未整理)</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/04/TOEFL-notes-%E5%AD%A6%E6%9C%AF%E8%AE%A8%E8%AE%BA%EF%BC%88%E6%A8%A1%E6%9D%BF%E7%BB%93%E6%9E%84%EF%BC%89/">TOEFL_notes_学术讨论（模板结构）</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/30/week1-Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting/">week1 Hands-on Introduction to Linux Commands and Shell Scripting</a>
-          </li>
-        
-          <li>
-            <a href="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">特征工程</a>
           </li>
         
       </ul>
@@ -520,9 +520,9 @@
     </div>
     <nav id="mobile-nav">
   
-    <a href="/" class="mobile-nav-link">Home</a>
+    <a href="/" class="mobile-nav-link">主页</a>
   
-    <a href="/archives" class="mobile-nav-link">Archives</a>
+    <a href="/archives" class="mobile-nav-link">全部文章</a>
   
 </nav>
     
