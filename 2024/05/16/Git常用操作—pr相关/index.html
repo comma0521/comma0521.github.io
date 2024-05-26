@@ -4,14 +4,19 @@
   <meta charset="utf-8">
   
   
-  <title>归档: 2024 | vv_Note</title>
+  <title>Git常用操作—pr相关 | vv_Note</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="vv_Note">
-<meta property="og:url" content="http://example.com/archives/2024/index.html">
+  <meta name="description" content="进入你的本地仓库目录 添加上游仓库 获取上游仓库的更新  切换到主要分支  合并上游仓库的更改  推送更新到你的 GitHub fork 仓库 1234567cd repo  git remote add upstream https:&#x2F;&#x2F;github.com&#x2F;upstream&#x2F;repogit fetch upstream git checkout master  git merge upstre">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git常用操作—pr相关">
+<meta property="og:url" content="http://example.com/2024/05/16/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E2%80%94pr%E7%9B%B8%E5%85%B3/index.html">
 <meta property="og:site_name" content="vv_Note">
+<meta property="og:description" content="进入你的本地仓库目录 添加上游仓库 获取上游仓库的更新  切换到主要分支  合并上游仓库的更改  推送更新到你的 GitHub fork 仓库 1234567cd repo  git remote add upstream https:&#x2F;&#x2F;github.com&#x2F;upstream&#x2F;repogit fetch upstream git checkout master  git merge upstre">
 <meta property="og:locale">
+<meta property="article:published_time" content="2024-05-16T13:09:47.000Z">
+<meta property="article:modified_time" content="2024-05-16T13:12:36.670Z">
 <meta property="article:author" content="vv">
+<meta property="article:tag" content="-技术备忘">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="vv_Note" type="application/atom+xml">
@@ -71,216 +76,72 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2024" class="archive-year">2024</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/22/%E5%85%B3%E4%BA%8E%E9%AB%98%E6%95%88%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83%EF%BC%88%E7%95%99%E6%A1%A3%EF%BC%89/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-22T05:59:03.000Z" itemprop="datePublished">May 22</time>
+        <section id="main"><article id="post-Git常用操作—pr相关" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/16/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E2%80%94pr%E7%9B%B8%E5%85%B3/" class="article-date">
+  <time class="dt-published" datetime="2024-05-16T13:09:47.000Z" itemprop="datePublished">2024-05-16</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/22/%E5%85%B3%E4%BA%8E%E9%AB%98%E6%95%88%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83%EF%BC%88%E7%95%99%E6%A1%A3%EF%BC%89/">关于高效工作的一些思考（留档）</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Git常用操作—pr相关
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/18/TOEFL-notes-listening-lecture/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-18T03:23:45.000Z" itemprop="datePublished">May 18</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/18/TOEFL-notes-listening-lecture/">TOEFL-notes-listening lecture</a>
-    </h1>
-  
+        <p>进入你的本地仓库目录</p>
+<p>添加上游仓库</p>
+<p>获取上游仓库的更新 </p>
+<p>切换到主要分支 </p>
+<p>合并上游仓库的更改 </p>
+<p>推送更新到你的 GitHub fork 仓库</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">cd repo  </span><br><span class="line"></span><br><span class="line">git remote add upstream https://github.com/upstream/repo</span><br><span class="line">git fetch upstream </span><br><span class="line">git checkout master  </span><br><span class="line">git merge upstream/master  </span><br><span class="line">git push origin master  </span><br></pre></td></tr></table></figure>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/16/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E2%80%94pr%E7%9B%B8%E5%85%B3/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-16T13:09:47.000Z" itemprop="datePublished">May 16</time>
-</a>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/16/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E2%80%94pr%E7%9B%B8%E5%85%B3/">Git常用操作—pr相关</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/07/wsl%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-07T11:37:24.000Z" itemprop="datePublished">May 7</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/16/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E2%80%94pr%E7%9B%B8%E5%85%B3/" data-id="clwn4rshn00034cuh6nahddd5" data-title="Git常用操作—pr相关" class="article-share-link"><span class="fa fa-share">分享</span></a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/07/wsl%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">wsl的操作记录</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-07T03:22:54.000Z" itemprop="datePublished">May 7</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/">AI_贝叶斯网络</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-05T23:56:12.000Z" itemprop="datePublished">May 6</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/">OS笔记-CH-8-死锁</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/" rel="tag">-技术备忘</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2024/05/18/TOEFL-notes-listening-lecture/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">前一篇</strong>
+      <div class="article-nav-title">
+        
+          TOEFL-notes-listening lecture
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2024/05/07/wsl%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">后一篇</strong>
+      <div class="article-nav-title">wsl的操作记录</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/05/gdb%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-05T11:22:35.000Z" itemprop="datePublished">May 5</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/05/gdb%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">gdb的基本使用方法</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/04/TOEFL-notes-%E7%BB%BC%E5%90%88%E5%86%99%E4%BD%9C%EF%BC%885-4%EF%BC%89/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-04T10:12:07.000Z" itemprop="datePublished">May 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/04/TOEFL-notes-%E7%BB%BC%E5%90%88%E5%86%99%E4%BD%9C%EF%BC%885-4%EF%BC%89/">TOEFL_notes_综合写作（5.4）(未整理)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/04/TOEFL-notes-%E5%AD%A6%E6%9C%AF%E8%AE%A8%E8%AE%BA%EF%BC%88%E6%A8%A1%E6%9D%BF%E7%BB%93%E6%9E%84%EF%BC%89/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-04T06:53:12.000Z" itemprop="datePublished">May 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/04/TOEFL-notes-%E5%AD%A6%E6%9C%AF%E8%AE%A8%E8%AE%BA%EF%BC%88%E6%A8%A1%E6%9D%BF%E7%BB%93%E6%9E%84%EF%BC%89/">TOEFL_notes_学术讨论（模板结构）</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2024/05/04/TOEFL-notes-%E5%AD%A6%E6%9C%AF%E8%AE%A8%E8%AE%BA%EF%BC%88%E6%94%BF%E5%BA%9C%EF%BC%89/" class="archive-article-date">
-  <time class="dt-published" datetime="2024-05-04T06:53:12.000Z" itemprop="datePublished">May 4</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2024/05/04/TOEFL-notes-%E5%AD%A6%E6%9C%AF%E8%AE%A8%E8%AE%BA%EF%BC%88%E6%94%BF%E5%BA%9C%EF%BC%89/">TOEFL_notes_学术讨论（政府）(未整理)</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2024/page/2/">2</a><a class="extend next" rel="next" href="/archives/2024/page/2/">下一页 &raquo;</a>
-  </nav>
 
 </section>
         

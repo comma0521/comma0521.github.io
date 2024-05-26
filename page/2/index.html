@@ -73,6 +73,216 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-OS笔记-CH-8-死锁" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/" class="article-date">
+  <time class="dt-published" datetime="2024-05-05T23:56:12.000Z" itemprop="datePublished">2024-05-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/">技术备忘</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/">OS笔记-CH-8-死锁</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="死锁产生的条件"><a href="#死锁产生的条件" class="headerlink" title="死锁产生的条件"></a>死锁产生的条件</h2><p>死锁：当一组进程中的每个进程都在等待某个事件（资源），而仅有这组进程中被阻塞的其他进程才可触发该事件时，则认为该组进程发生了死锁。</p>
+<ul>
+<li>死锁是永久性的，死锁问题没有有效而通用的解决方案</li>
+</ul>
+<p>资源</p>
+<ul>
+<li>可重用资源<ul>
+<li>主存、处理器、IO通道</li>
+</ul>
+</li>
+<li>消费型资源<ul>
+<li>IO buffers</li>
+</ul>
+</li>
+</ul>
+<p>进程使用资源的正确顺序：申请、使用、释放</p>
+<h3 id="必要条件"><a href="#必要条件" class="headerlink" title="必要条件"></a>必要条件</h3><ul>
+<li>互斥</li>
+<li>占有等待<ul>
+<li>当一个进程等待其他进程时，继续占有已分配资源</li>
+</ul>
+</li>
+<li>非抢占</li>
+<li>循环等待</li>
+</ul>
+<h2 id="处理死锁的方法"><a href="#处理死锁的方法" class="headerlink" title="处理死锁的方法"></a>处理死锁的方法</h2><ul>
+<li><p>确保系统永远不会进入死锁状态</p>
+<ul>
+<li><p>死锁预防</p>
+<p>​	使死锁的四个必要条件之一无效</p>
+<ul>
+<li>互斥 -&gt; 可共享资源不需要互斥</li>
+<li>占有等待 -&gt; 不许占着等。<ul>
+<li>开始执行之前请求分配所有资源，仅当进程完全没有资源的时候再分配</li>
+<li>可能会饥饿，利用率低</li>
+</ul>
+</li>
+<li>非抢占 -&gt; 有得不到的资源就释放其他的，排队等着去</li>
+<li>循环等待 -&gt; 按类型强制排序所有资源</li>
+</ul>
+</li>
+<li><p>死锁避免</p>
+</li>
+</ul>
+</li>
+<li><p>允许进入死锁状态，然后检测恢复</p>
+</li>
+<li><p>默认不发生</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/" data-id="clw1dxu3e00081suhgdik6oti" data-title="OS笔记-CH-8-死锁" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/os/" rel="tag">os</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-gdb的基本使用方法" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/05/gdb%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="article-date">
+  <time class="dt-published" datetime="2024-05-05T11:22:35.000Z" itemprop="datePublished">2024-05-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/05/05/gdb%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">gdb的基本使用方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/05/gdb%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" data-id="clw1dxu3i000f1suhh6kbeuh0" data-title="gdb的基本使用方法" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-TOEFL-notes-综合写作（5-4）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/05/04/TOEFL-notes-%E7%BB%BC%E5%90%88%E5%86%99%E4%BD%9C%EF%BC%885-4%EF%BC%89/" class="article-date">
+  <time class="dt-published" datetime="2024-05-04T10:12:07.000Z" itemprop="datePublished">2024-05-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/">技术备忘</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/05/04/TOEFL-notes-%E7%BB%BC%E5%90%88%E5%86%99%E4%BD%9C%EF%BC%885-4%EF%BC%89/">TOEFL_notes_综合写作（5.4）(未整理)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>biology; history; (archaeology; European history - England; Spain; Italy; France…; art history)</p>
+<p>Shakespeare - the Tudor Dynasty; playwright…<br>Renaissance - Italy<br>the Neatherlands - the Dutch people - Rembrandt</p>
+<p>“Horrible Histories” - 有关欧洲历史的影视作品，有时间可以找来看</p>
+<p>excavation</p>
+<p>综合写作<br>无上限要求<br>要写得完整 - all the info<br>准确度<br>对比r和l</p>
+<ul>
+<li>opposition or contradiction<ul>
+<li>challenge&#x2F;cast doubt&#x2F;oppose&#x2F;response to</li>
+</ul>
+</li>
+<li>theories and their weaknesses<ul>
+<li>challenge the specific theories</li>
+</ul>
+</li>
+<li>problems and solutions<ul>
+<li>present solutions to the specific problems</li>
+</ul>
+</li>
+<li>solutions and their weaknesses<ul>
+<li>cast doubt on the specific solutions</li>
+</ul>
+</li>
+</ul>
+<p>查内容全<br>逻辑全<br>人名、地名<br>纯历史事件较难…<br>跨学科去考（天文-几何&#x2F;化学 calcium gold platinum silver; carbon dioxide; sulphuric acid)</p>
+<p>radio carbon dating 放射性碳定年法</p>
+<p>Ancient America(考古) &lt;- Greek &#x2F; Roman &#x2F; Egypt(cat\pyraid)<br>&lt;- Middle Ages -&gt; 艺术、文艺复兴<br>Tudor &#x2F; Indusatrial Revolution &#x2F; U.S. history(基建、政治、女性)</p>
+<p>语料积累：</p>
+<ul>
+<li>edu</li>
+<li>org</li>
+<li>不要在Wikipedia</li>
+<li>the Economist 经济学人</li>
+<li>新闻材料 - cnn&#x2F;nbc……</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/05/04/TOEFL-notes-%E7%BB%BC%E5%90%88%E5%86%99%E4%BD%9C%EF%BC%885-4%EF%BC%89/" data-id="clw1dxu3h000e1suh2kwvf33f" data-title="TOEFL_notes_综合写作（5.4）(未整理)" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TOEFL-writing/" rel="tag">TOEFL_writing</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-TOEFL-notes-学术讨论（模板结构）" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/05/04/TOEFL-notes-%E5%AD%A6%E6%9C%AF%E8%AE%A8%E8%AE%BA%EF%BC%88%E6%A8%A1%E6%9D%BF%E7%BB%93%E6%9E%84%EF%BC%89/" class="article-date">
@@ -237,691 +447,11 @@
 
 
   
-    <article id="post-week1-Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/30/week1-Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting/" class="article-date">
-  <time class="dt-published" datetime="2024-04-29T17:13:01.000Z" itemprop="datePublished">2024-04-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/">技术备忘</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/30/week1-Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting/">week1 Hands-on Introduction to Linux Commands and Shell Scripting</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="introduction-to-Linux"><a href="#introduction-to-Linux" class="headerlink" title="introduction to Linux"></a>introduction to Linux</h1><h2 id="what-is-Unix-and-Linux"><a href="#what-is-Unix-and-Linux" class="headerlink" title="what is Unix and Linux"></a>what is Unix and Linux</h2><p><strong>Unix: a family of os</strong></p>
-<ul>
-<li>was not written in C at first</li>
-</ul>
-<p><strong>Linux: a family of Unix-OS</strong></p>
-<ul>
-<li>free &amp; open source</li>
-<li>secure</li>
-<li>multi-user</li>
-<li>multitasking</li>
-<li>portability</li>
-</ul>
-<p><strong>Linux use cases:</strong></p>
-<ul>
-<li>Android</li>
-<li>supercomputers</li>
-<li>data centers and clout services</li>
-<li>PCs</li>
-</ul>
-<p><strong>Linux distribution(distro): specific flavors of LinuxOS</strong></p>
-<ul>
-<li><p>sys utilities</p>
-</li>
-<li><p>GUI</p>
-</li>
-<li><p>shell commands</p>
-</li>
-<li><p>supplort types:</p>
-<ul>
-<li>LTS</li>
-<li>community-enterprise</li>
-</ul>
-</li>
-</ul>
-<p><strong>Linux distros:</strong></p>
-<p><strong>Debian:</strong> stable reliable open source</p>
-<p><strong>Ubuntu:</strong> debian-based</p>
-<ul>
-<li>desktop</li>
-<li>server</li>
-<li>core(for internet things)</li>
-</ul>
-<p><strong>Red Hat Linux:</strong> Fedora-based</p>
-<p><strong>Fedora:</strong></p>
-<ul>
-<li>sponsored by RH</li>
-</ul>
-<p> <strong>SUSE(SLE):</strong></p>
-<ul>
-<li>SLES: server</li>
-<li>SLED: developer</li>
-<li>German</li>
-</ul>
-<p><strong>Arch:</strong></p>
-<ul>
-<li>not stable</li>
-</ul>
-<h2 id="Linux-Architecture"><a href="#Linux-Architecture" class="headerlink" title="Linux Architecture"></a><strong>Linux Architecture</strong></h2><p>5 layers:</p>
-<ul>
-<li><strong>UI:</strong><ul>
-<li>users to interact</li>
-</ul>
-</li>
-<li><strong>Application</strong>(sys daemons, shells, user apps, tools)<ul>
-<li>sys tools</li>
-<li>programming languages</li>
-</ul>
-</li>
-<li><strong>operating sys:</strong><ul>
-<li>jobs&amp;programs health</li>
-</ul>
-</li>
-<li><strong>kernel:</strong><ul>
-<li>vital</li>
-<li>lowest-level software</li>
-<li>remain in mem</li>
-<li>bridge apps and hardware</li>
-<li>key jobs:<ul>
-<li>mem management</li>
-<li>process management</li>
-<li>device drivers</li>
-<li>security of sys</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>hardware</strong><ul>
-<li>includes<ul>
-<li>CPU</li>
-<li>RAM</li>
-<li>Storage</li>
-<li>Screen</li>
-<li>USB</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Linux-filesys"><a href="#Linux-filesys" class="headerlink" title="Linux filesys"></a><strong>Linux filesys</strong></h2><p>collection of files</p>
-<p>tree-like</p>
-<ul>
-<li>root dirctory:&#x2F;(root)<ul>
-<li>&#x2F;bin: binary files(directly below root) <ul>
-<li>codes to run programs and commands</li>
-</ul>
-</li>
-<li>&#x2F;usr: usr program</li>
-<li>&#x2F;home: personal working directory</li>
-<li>&#x2F;boot: sys boot files<ul>
-<li>for startup</li>
-</ul>
-</li>
-<li>&#x2F;media</li>
-<li>etc.</li>
-</ul>
-</li>
-</ul>
-<h2 id="Linux-terminal-overview"><a href="#Linux-terminal-overview" class="headerlink" title="Linux terminal overview"></a>Linux terminal overview</h2><p>Linux shell: an OS-level app that interprets commands</p>
-<p>e.g. Bash, Zsh</p>
-<ul>
-<li>move and copy files</li>
-<li>wr files</li>
-<li>extract filter data</li>
-<li>search for data</li>
-</ul>
-<p><strong>Linux terminal:</strong> an app you use to interact with the shell</p>
-<ul>
-<li>enter commands and receive output from them</li>
-</ul>
-<p>user enter command to terminal, go to shell, interpret for hardware</p>
-<p>and then turn back</p>
-<p><img src="/2024/04/30/week1-Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting/1.png"></p>
-<p><strong>terminal command line</strong></p>
-<ul>
-<li><p>filepath：</p>
-<ul>
-<li>~ home directory</li>
-<li>&#x2F; root directory</li>
-<li>.. parent directory</li>
-<li>. current directory</li>
-</ul>
-</li>
-<li><p><strong>cd</strong>: change directory</p>
-<ul>
-<li><code>cd ..</code> go back to parent dir</li>
-<li><code>cd ../../</code> ok</li>
-</ul>
-</li>
-<li><p><strong>ls:</strong> list contents of a directory</p>
-</li>
-<li><p><strong>pwd</strong>: present working dir</p>
-</li>
-</ul>
-<h2 id="creating-and-editing-txet-files"><a href="#creating-and-editing-txet-files" class="headerlink" title="creating and editing txet files"></a><strong>creating and editing txet files</strong></h2><p>popular text editors:</p>
-<ul>
-<li>command-line editors:<ul>
-<li>GNU nano<ul>
-<li><code>nano &lt;filename&gt;</code> create and open a new file</li>
-</ul>
-</li>
-<li>vi</li>
-<li>vim<ul>
-<li><code>vim &lt;filename&gt;</code></li>
-<li><strong>indert mode</strong><ul>
-<li>press <code>i</code> to enter</li>
-<li>press <code>Esc</code> to exit</li>
-<li>the text is written to the buffer at the cursor location</li>
-</ul>
-</li>
-<li><strong>command mode (default mode)</strong><ul>
-<li><code>:sav &lt;filename&gt;</code>- create a file and write the buffer to the file</li>
-<li><code>:w</code>- write the buffer to the file without exiting</li>
-<li><code>:q</code>- quit vim session</li>
-<li><code>:q!</code>- quit without saving</li>
-<li><code>:wq=:w+:q</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>-based editiors:<ul>
-<li>gedit</li>
-</ul>
-</li>
-</ul>
-<p><code>cat hello_world.txt</code>- get whatever is in that txt doc.</p>
-<h2 id="Installing-Software-and-Updates"><a href="#Installing-Software-and-Updates" class="headerlink" title="Installing Software and Updates"></a><strong>Installing Software and Updates</strong></h2><p>packages:</p>
-<ul>
-<li>archive files</li>
-<li>for installing new software or updating existing software</li>
-</ul>
-<p>package managers:</p>
-<ul>
-<li>manage the download and installation of packages</li>
-<li>available for different Linyx distros</li>
-</ul>
-<p><strong>Deb and RPM packages</strong></p>
-<ul>
-<li>for Linux OS</li>
-<li>.deb files<ul>
-<li>Debian-based distros (e.g. Debian Ubuntu Mint)</li>
-<li>stands for Debian</li>
-</ul>
-</li>
-<li>.rpm files<ul>
-<li>Red Hat -based distros (e.g. CentOS&#x2F;RHEL, Fedora, openSUSE)</li>
-<li>stands for Red hat Package Manager</li>
-</ul>
-</li>
-<li>both formats are equivalent - can use ailen to convert<ul>
-<li>RPM-&gt;deb: <code>alien &lt;package_name&gt;.rpm</code></li>
-<li>deb-&gt;RPM: <code>alien -r &lt;package_name&gt;.deb</code></li>
-</ul>
-</li>
-</ul>
-<p><strong>Linux distro package managers</strong></p>
-<ul>
-<li><p>PackageKit</p>
-<ul>
-<li>RPM-based</li>
-<li>GUI tool</li>
-</ul>
-</li>
-<li><p>yum</p>
-<ul>
-<li>RPM-based</li>
-<li><code>sudo yum update</code></li>
-</ul>
-</li>
-<li><p>Update Manager</p>
-<ul>
-<li>deb-based</li>
-<li>GUI tool</li>
-<li>automatically check</li>
-</ul>
-</li>
-<li><p>apt</p>
-<ul>
-<li>deb-based</li>
-<li>command line</li>
-<li><code>sudo apt upgrade</code></li>
-</ul>
-</li>
-</ul>
-<p><strong>install</strong></p>
-<ul>
-<li><p>deb package- <code>sudo apt install&lt;package_name&gt;</code> </p>
-</li>
-<li><p>RPM package- <code>sudo yum install &lt;package_name&gt;</code></p>
-</li>
-</ul>
-<p>package managers</p>
-<ul>
-<li>Python<ul>
-<li>pip<ul>
-<li><code>pip install pandas</code></li>
-</ul>
-</li>
-<li>conda</li>
-</ul>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/30/week1-Hands-on-Introduction-to-Linux-Commands-and-Shell-Scripting/" data-id="clw1dxu3s000j1suh358g2z25" data-title="week1 Hands-on Introduction to Linux Commands and Shell Scripting" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-特征工程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2024-04-29T17:10:56.000Z" itemprop="datePublished">2024-04-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/">技术备忘</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/">特征工程</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>[TOC]</p>
-<h2 id="0-关于特征工程的简单介绍"><a href="#0-关于特征工程的简单介绍" class="headerlink" title="0. 关于特征工程的简单介绍"></a>0. 关于特征工程的简单介绍</h2><p>Feature engineering is a machine learning technique that leverages data to create new variables that aren’t in the <a target="_blank" rel="noopener" href="https://builtin.com/data-science/train-test-split">training set</a>. It can produce new features for both supervised and <a target="_blank" rel="noopener" href="https://builtin.com/machine-learning/unsupervised-learning">unsupervised learning</a>, with the goal of simplifying and speeding up data transformations while also enhancing model accuracy. Feature engineering is required when working with <a target="_blank" rel="noopener" href="https://builtin.com/machine-learning/machine-learning-models-explained">machine learning models</a>. Regardless of the data or architecture, a terrible feature will have a direct impact on your model.</p>
-<p>特征工程是一种机器学习技术，它利用数据创建不在训练集中的新变量。它可以为监督和非监督式学习生成新的特性，目的是简化和加快数据转换，同时提高模型的准确性。在处理机器学习模型时需要特征工程。无论是数据还是架构，一个糟糕的特性都会对您的模型产生直接的影响。</p>
-<p><strong>特征：</strong>原始数据某个方面的数值表示，特征是数据和模型之间的纽带。</p>
-<p><strong>定义：</strong>从原始数据中提取特征并将其转换为适合机器学习的格式，从而改善机器学习性能（提高预测准确度），同时减少运行时间。</p>
-<p><strong>目的：</strong>机器学习的一种优化，提高机器学习性能</p>
-<p><strong>流程：</strong></p>
-<p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/1.png" alt="image-20240511085820961"></p>
-<p>Feature engineering consists of various processes:</p>
-<ul>
-<li><strong>Feature creation（创建）</strong>: Creating features involves <strong>creating new variables which will be most helpful for our model.</strong> This can be adding or removing some features. </li>
-<li><strong>Transformations（转换）</strong>: Feature transformation is simply a function that transforms features from one representation to another. <strong>The goal here is to plot and visualize data.</strong> If something isn’t adding up with the new features, we can reduce the number of features used, speed up training or increase the accuracy of a certain model.（提高准确性，通过变换or映射实现，可视化）</li>
-<li><strong>Feature extraction（提取）</strong>: Feature extraction is the process of extracting features from a data set to identify useful information. Without distorting the original relationships or significant information, this compresses the amount of data into manageable quantities for algorithms to process.（中文意思就是把数据集整理成算法可以处理的样子，压缩）</li>
-<li><strong>Exploratory data analysis（探索性分析） :</strong> <a target="_blank" rel="noopener" href="https://builtin.com/data-science/EDA-python">Exploratory data analysis (EDA)</a> is a powerful and simple tool that can be used to improve your understanding of your data, by exploring its properties. The technique is often applied when t<strong>he goal is to create new hypotheses or find patterns in the data.</strong> It’s often used on large amounts of qualitative or quantitative data that haven’t been analyzed before.</li>
-<li><strong>Benchmark</strong> : A benchmark model is the most user-friendly, dependable, transparent and interpretable model against which you can measure your own. It’s a good idea to run test data sets to see if your new machine learning model outperforms a recognized benchmark. These benchmarks are often used as measures for comparing the performance between different machine learning models like neural networks and support vector machines, linear and non-linear classifiers or different approaches like bagging and boosting. 基准模型是一种用户友好、可靠、透明且易于解释的模型，用作衡量和比较新机器学习模型性能的标准。通过对测试数据集的分析，基准模型可以帮助你判断新开发的机器学习模型是否超越了公认的性能标准。这些基准通常用于比较不同机器学习模型（如神经网络与支持向量机）、不同类型的分类器（线性与非线性）或不同的方法（如Bagging与Boosting）之间的性能。简言之，基准模型为机器学习模型的性能评估提供了一个参考点，有助于研究人员或开发人员评估和优化他们的模型。</li>
-</ul>
-<hr>
-<h2 id="1-对数据集的各种最初始的处理"><a href="#1-对数据集的各种最初始的处理" class="headerlink" title="1. 对数据集的各种最初始的处理"></a>1. 对数据集的各种最初始的处理</h2><h3 id="特征增强（Feature-Enhancement）"><a href="#特征增强（Feature-Enhancement）" class="headerlink" title="特征增强（Feature Enhancement）"></a>特征增强（Feature Enhancement）</h3><p>它指的是通过各种技术改善或增加数据集中特征的质量和有效性，以使机器学习模型能够从这些特征中学习到更多有用信息。特征增强的目的是提高数据的可用性，强化模型的预测能力。</p>
-<p>preparing your data for machine learning. </p>
-<h4 id="缺失值处理（Missing-values）"><a href="#缺失值处理（Missing-values）" class="headerlink" title="缺失值处理（Missing values）"></a>缺失值处理（Missing values）</h4><ol>
-<li><strong>Numerical imputation.（数字）</strong></li>
-</ol>
-<p>对缺失值处理主要有两种方式：</p>
-<ul>
-<li><strong>删除缺失值</strong>，这种一般适用于数据集中缺失值较少的情况，如果缺失值比例超过10%，那么删除数据会对数据分析结果有很大影响，不合理，需要填充值；</li>
-<li><strong>填充值</strong>，填充的值可以是均值、中位值、前值、后值，对于分类变量而言，可以是众数，此外还可以进行插值，如二次曲线插值，某些情况下也可以填充0，可以根据实际情况选择合适的填充值。</li>
-</ul>
-<ol start="2">
-<li><strong>Categorical imputation.（分类）</strong></li>
-</ol>
-<p>When dealing with categorical columns, replacing missing values with the highest value in the column is a smart solution. However, if you believe the values in the column are evenly distributed and there is no dominating value, imputing a category like “Other” would be a better choice, as your imputation is more likely to converge to a random selection in this scenario.</p>
-<p>在处理分类列时，用列中的最高值替换缺失值是一个明智的解决方案。但是，如果您认为列中的值是均匀分布的，且不存在主导值，那么使用 “其他 “这样的类别进行估算会是更好的选择，因为在这种情况下，您的估算更有可能趋近于随机选择。</p>
-<h4 id="异常值处理"><a href="#异常值处理" class="headerlink" title="异常值处理"></a>异常值处理</h4><p>removing outliers from a data set</p>
-<ol>
-<li><strong>Removal</strong>: Outlier-containing entries are deleted from the distribution. However, if there are outliers across numerous variables, this strategy may result in a big chunk of the datasheet being missed.（直接删，但是可能删太多了）</li>
-<li><strong>Replacing values</strong>: Alternatively, the outliers could be handled as missing values and replaced with suitable imputation.（当成缺失值作替换）</li>
-<li><strong>Capping</strong>: Using an arbitrary value or a value from a variable distribution to replace the maximum and minimum values.（用某个值换）</li>
-<li><strong>Discretization :</strong> Discretization is the process of converting continuous variables, models, and functions into discrete ones. This is accomplished by constructing a series of continuous intervals (or bins) that span the range of our desired variable&#x2F;model&#x2F;function.↓</li>
-</ol>
-<p><strong>分箱策略</strong>：将连续数据分箱（或分段）可以有效地“平滑”数据，减少异常值对数据分析的影响。通过将连续的数据值划分到固定数量的区间内，单个的异常值对整体数据的影响被限制在其所在的箱内。这种方法可以使数据分析对异常值不那么敏感。</p>
-<p><strong>异常值的隔离</strong>：在离散化过程中，可以通过设定特定的区间来隔离异常值，比如为极端的数值创建专门的箱。这意味着异常值被单独分组，而不是与其他“正常”值混合，有助于后续分析中识别和处理这些异常值。</p>
-<p><strong>减少异常值带来的偏差</strong>：连续数据中的极端值可能会对数据分析和模型预测产生不成比例的影响。通过离散化，数据被简化为几个类别，这可以减轻单个异常值可能带来的偏差。</p>
-<p><strong>数据的鲁棒性提高</strong>：将连续变量离散化后，数据分析和模型训练对异常值的敏感度降低，增加了模型对噪声和异常值的鲁棒性。</p>
-<p><strong>便于后续处理</strong>：对于一些机器学习算法，尤其是那些基于树的模型（如决策树、随机森林、梯度提升树等），离散化的变量可能更容易处理，同时使得模型更容易解释。此外，异常值的处理也变得更加直接，因为它们已经被划分到特定的箱中。</p>
-<h3 id="类别变量编码"><a href="#类别变量编码" class="headerlink" title="类别变量编码"></a>类别变量编码</h3><p>特征的数据类型可分为两大类，即连续型和离散型。其中离散型特征既有数值型的，也有类别型的。例如，性别（男、女）、成绩等级（A、B、C）等。连续型特征的原始形态就可以作为模型的输入，无论是LR、神经网络，还是SVM、GBDT、xgboost等。但是除了决策树等少数模型等直接处理字符串形式的类别型特征外，逻辑回归、支持向量机等模型的输入必须是数值型特征才能进行训练。因此，就需要将离散型中的类别型特征转换成数值型的。</p>
-<h4 id="有顺序：序号编码（Ordinal-Encoding）"><a href="#有顺序：序号编码（Ordinal-Encoding）" class="headerlink" title="有顺序：序号编码（Ordinal Encoding）"></a>有顺序：序号编码（Ordinal Encoding）</h4><p><strong>序号编码通常用于处理类别间具有内在大小顺序关系的数据</strong>，对于一个具有m个类别的特征，我们将其对应地映射到[0, m-1]的整数。例如对于”学历”这样的类别，”学士”、”硕士”、”博士” 可以很自然地编码成 [0,2]，因为它们内在就含有这样的逻辑顺序。但如果对于“颜色”这样的类别，“蓝色”、“绿色”、“红色”分别编码成[0,2]是不合理的，因为我们并没有理由认为“蓝色”和“绿色”的差距比“蓝色”和“红色”的差距对于特征的影响是不同的。</p>
-<h4 id="没顺序：-独热编码（One-hot-Encoding）"><a href="#没顺序：-独热编码（One-hot-Encoding）" class="headerlink" title="没顺序： 独热编码（One-hot Encoding）"></a>没顺序： 独热编码（One-hot Encoding）</h4><p>如果类别特征本身有顺序（例：优秀、良好、合格、不合格），那么可以保留单列自然数编码，但是如果类别特征没有明显的顺序（例：红、黄、蓝），则可以使用独热编码（One-Hot Encoding），即每个类作为1个特征。输出的矩阵是稀疏的，<strong>含有大量的0</strong>。通过独热编码，每个类别特征被转换成一个二进制（0或1）向量，其中只有一个位置是1（表示该类别），其余都是0。</p>
-<h3 id="特征变换：把数据变得更整齐"><a href="#特征变换：把数据变得更整齐" class="headerlink" title="特征变换：把数据变得更整齐"></a>特征变换：把数据变得更整齐</h3><h4 id="对数变换（最常用）"><a href="#对数变换（最常用）" class="headerlink" title="对数变换（最常用）"></a>对数变换（最常用）</h4><p>Log transform is the most used technique among data scientists. It’s mostly used to <strong>turn a <a target="_blank" rel="noopener" href="https://builtin.com/data-science/skewed-data">skewed distribution</a> into a <a target="_blank" rel="noopener" href="https://builtin.com/data-science/empirical-rule">normal or less-skewed distribution</a>.</strong> We take the log of the values in a column and utilize those values as the column in this transform. It’s used to handle confusing data, and the data becomes more approximative to normal applications.</p>
-<p>常见的数据预处理技术，通常用于减小数据的偏斜（skewness）和使数据更接近正态分布。</p>
-<p><strong>原理：</strong></p>
-<ol>
-<li><strong>缩小极端值的影响</strong></li>
-</ol>
-<p>对数变换可以显著减少数据中极端值（大数值）的影响，而对较小的数值影响较小。这是因为对数变换是非线性的，它对较大的数值进行了“压缩”，而对接近0的数值变化不大。这种压缩效果减少了数据的偏斜程度，使得数据的分布更加接近于正态分布。</p>
-<ol start="2">
-<li><strong>转换乘法关系为加法关系</strong></li>
-</ol>
-<p>对数变换将原始数据中的乘法关系转换为加法关系。这对于处理数据中的乘法效应（如指数增长）非常有用，因为正态分布假设数据的变异是加性的。通过对数变换，可以使得变量之间的复杂乘法关系线性化，更适合采用假设加性效应的统计模型进行分析。</p>
-<ol start="3">
-<li><strong>改善线性关系</strong></li>
-</ol>
-<p>在回归分析等统计建模中，对数变换常用于改善自变量和因变量之间的线性关系。如果数据呈现指数增长或者具有非线性关系，对数变换可以帮助线性化这种关系，从而满足线性模型的假设。</p>
-<p><strong>关于skewed data：</strong></p>
-<p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/2.png" alt="image-20240330202959968"></p>
-<p>大概就是中位数左右的数据量差太多，没仔细研究（）</p>
-<p>总之curve歪了图上这种向左歪的是正偏斜，正偏斜是对数变换可以处理的。（负偏斜不行）</p>
-<h3 id="特征缩放：也是为了把数据变得更整齐"><a href="#特征缩放：也是为了把数据变得更整齐" class="headerlink" title="特征缩放：也是为了把数据变得更整齐"></a>特征缩放：也是为了把数据变得更整齐</h3><p>人话就是：想办法让特征之间的区别更鲜明好distinguish一点</p>
-<h4 id="不考虑标准差：归一化"><a href="#不考虑标准差：归一化" class="headerlink" title="不考虑标准差：归一化"></a>不考虑标准差：归一化</h4><p>所有数据，从0到1给缩放个值出来。但是得先处理异常值，因为单个诡异的值对normalization scale会产生很大影响。</p>
-<h4 id="考虑标准差：标准化（z分数归一化）"><a href="#考虑标准差：标准化（z分数归一化）" class="headerlink" title="考虑标准差：标准化（z分数归一化）"></a>考虑标准差：标准化（z分数归一化）</h4><p>z分数标准化是最常见的标准化技术,利用统计学里简单的z分数(标准分数)思想. z分数标准化的输出会被重新缩放,使均值为0, 标准差为1. 通过缩放特征, 统一化均值和方差(标准差的平方), 可以让KNN这种模型达到最优化,而不会倾向于较大比例的特征. <strong>$z&#x3D;\frac {x-\mu}{\sigma}$</strong></p>
-<p>​	 其中z为新的值(z分数), x是原数据, $\mu$是该列的均值, $\sigma$是列的标准差</p>
-<hr>
-<h2 id="2-现在数据集是一个比较完整的状态了，继续处理"><a href="#2-现在数据集是一个比较完整的状态了，继续处理" class="headerlink" title="2. 现在数据集是一个比较完整的状态了，继续处理"></a>2. 现在数据集是一个比较完整的状态了，继续处理</h2><h3 id="特征选择：准备一个更优良的训练集"><a href="#特征选择：准备一个更优良的训练集" class="headerlink" title="特征选择：准备一个更优良的训练集"></a>特征选择：准备一个更优良的训练集</h3><p><strong>（西瓜书第11章）</strong></p>
-<ul>
-<li><p>一个重要的数据预处理过程</p>
-</li>
-<li><p><strong>特征选择</strong>旨在从所有可能的特征中选择最有用的那些特征。这一步骤可以帮助模型减少计算复杂性，提高学习效率。常用的特征选择方法包括过滤方法（Filter methods）、包装方法（Wrapper methods）和嵌入方法（Embedded methods）。</p>
-</li>
-<li><p>相关特征和无关特征——相对当前学习任务而言</p>
-</li>
-<li><p>冗余特征</p>
-</li>
-</ul>
-<h4 id="子集搜索——贪心的（只有局部最优）"><a href="#子集搜索——贪心的（只有局部最优）" class="headerlink" title="子集搜索——贪心的（只有局部最优）"></a>子集搜索——贪心的（只有局部最优）</h4><p>目的：从特征集合里选取一个最好的，包含了所有重要信息的特征子集。</p>
-<h5 id="前向搜索"><a href="#前向搜索" class="headerlink" title="前向搜索"></a>前向搜索</h5><p>人话就是开局就一个特征，一次加一个剩下的里面最好的</p>
-<h5 id="后向搜索"><a href="#后向搜索" class="headerlink" title="后向搜索"></a>后向搜索</h5><p>人话就是开局大家伙都在，一次踢一个最不好的</p>
-<h5 id="双向搜索"><a href="#双向搜索" class="headerlink" title="双向搜索"></a>双向搜索</h5><p>结合前后向，每轮增加最相关（被大哥罩了后面也不会t），再踢最无关</p>
-<h4 id="子集评价"><a href="#子集评价" class="headerlink" title="子集评价"></a>子集评价</h4><p>计算信息增益（详见西瓜书4.2.1（还没看 mark））和信息熵。</p>
-<p>增益：越大证明这个候选子集越好。</p>
-<p>熵：就是比较特征子集对数据集的划分和真实样本信息的差距，当然了，差距越小越好。</p>
-<h4 id="常用的特征选择方法"><a href="#常用的特征选择方法" class="headerlink" title="常用的特征选择方法"></a>常用的特征选择方法</h4><h5 id="过滤式选择"><a href="#过滤式选择" class="headerlink" title="过滤式选择"></a>过滤式选择</h5><p>先对数据集进行特征选择，再训练学习机。（人话就是先把数据搞得差不多了，给学习机喂一点好的。过滤式选择只涉及前半句的内容）</p>
-<p>跟子集搜索没啥关系，只看数据集。很速度。</p>
-<h6 id="Relief"><a href="#Relief" class="headerlink" title="Relief"></a>Relief</h6><ul>
-<li><p>在p249-250</p>
-</li>
-<li><p>引入了“相关统计量”概念度量特征的重要性</p>
-</li>
-<li><p>前提是要先把数据进行归一化处理（对于连续型）</p>
-</li>
-<li><p>一个比较粗浅的理解：给定训练集，要是用这个训练集，同类的距离比异类还远，那就太垃圾了。当然是分化得越开越好。实际上就是计算一个距离（衡量相关性）</p>
-</li>
-</ul>
-<h5 id="包裹式选择"><a href="#包裹式选择" class="headerlink" title="包裹式选择"></a>包裹式选择</h5><p>不管数据咋样，直接开学。看哪种学法最合适用哪种。</p>
-<p>需要多次训练学习机，计算开销大。但是也因此结果更好。</p>
-<h6 id="LVW"><a href="#LVW" class="headerlink" title="LVW"></a>LVW</h6><ul>
-<li>基于拉斯维加斯方法（随机策略）<ul>
-<li>关于拉斯维加斯算法的例子：快排</li>
-</ul>
-</li>
-<li>贼慢，时间有限可能给不出来解。</li>
-<li>过程可以大致参考前面【子集搜索】的内容</li>
-</ul>
-<h5 id="嵌入式选择"><a href="#嵌入式选择" class="headerlink" title="嵌入式选择"></a>嵌入式选择</h5><p>结合过滤式和包裹式，训练过程中自动地进行特征选择。</p>
-<ul>
-<li>主要目的是为了对抗过拟合</li>
-<li>L1正则化，向模型的损失函数增加L1范数惩罚项。</li>
-<li>原理：现在的模型就这样，让其中一些特征影响为0，试试看会不会结果更好？</li>
-<li>&#x3D;&#x3D;步骤：（没咋看懂。。）&#x3D;&#x3D;<ul>
-<li>前向逐步回归：从0开始一点一点加，加到不能更好</li>
-<li>近端梯度下降（PGD）</li>
-</ul>
-</li>
-</ul>
-<h6 id="LARS"><a href="#LARS" class="headerlink" title="LARS"></a>LARS</h6><p>基于线性回归平方误差最小化，每次选择一个与残差相关性最大的特征</p>
-<p>残差在数理统计中是指实际观察值与<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E4%BC%B0%E8%AE%A1%E5%80%BC/4424834?fromModule=lemma_inlink">估计值</a>（<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8B%9F%E5%90%88%E5%80%BC/9461734?fromModule=lemma_inlink">拟合值</a>）之间的差。“残差”蕴含了有关模型基本假设的重要信息。如果回归模型正确的话， 我们可以将残差看作误差的观测值。</p>
-<h3 id="特征转换（降维）：处理成易于学习的形式"><a href="#特征转换（降维）：处理成易于学习的形式" class="headerlink" title="特征转换（降维）：处理成易于学习的形式"></a>特征转换（降维）：处理成易于学习的形式</h3><p>(西瓜书第十章)</p>
-<ul>
-<li><strong>降维</strong>旨在减少数据集中的特征数量，同时尽可能保留原始数据的信息。本来其实特征选择完成就可以开始训练了，但是特征矩阵太大会导致开销太大，所以先降维。</li>
-<li>常用的降维技术包括主成分分析（PCA）、线性判别分析（LDA）和t-分布随机邻域嵌入（t-SNE）等。</li>
-</ul>
-<h4 id="k近邻学习"><a href="#k近邻学习" class="headerlink" title="k近邻学习"></a>k近邻学习</h4><ul>
-<li>常用的监督学习方法</li>
-<li>机制：给定测试样本，基于某种距离度量找出训练集中与其最靠近的k个及训练样本，基于k个邻居的信息进行预测<ul>
-<li>分类任务——投票法（k个里出现次数最多的）</li>
-<li>回归任务——平均法（取平均值做预测结果）</li>
-<li>都可以加权，基于距离</li>
-</ul>
-</li>
-<li>没有显式的训练过程——懒惰学习的代表（训练阶段只是把样本保存，训练时间开销0，收到测试样本在处理），直接处理的交急切学习</li>
-<li>最近邻分类器，基于贝叶斯最优分类器：通过某对象的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%85%88%E9%AA%8C%E6%A6%82%E7%8E%87/6106649?fromModule=lemma_inlink">先验概率</a>，利用<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%85%AC%E5%BC%8F/9683982?fromModule=lemma_inlink">贝叶斯公式</a>计算出其<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87/0?fromModule=lemma_inlink">后验概率</a>，即该对象属于某一类的概率，选择具有<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%9C%80%E5%A4%A7%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87/22800129?fromModule=lemma_inlink">最大后验概率</a>的类作为该对象所属的类。</li>
-</ul>
-<h4 id="低维嵌入"><a href="#低维嵌入" class="headerlink" title="低维嵌入"></a>低维嵌入</h4><ul>
-<li><p>引入原因：高维情形出现样本稀疏、距离计算困难——<strong>维数灾难</strong>，需要缓解</p>
-</li>
-<li><p>含义：通过数学变换将原始高维属性空间转变为一个低维“子空间”</p>
-</li>
-<li><p>作用：提高样本密度和距离计算难度，使更容易学习</p>
-</li>
-<li><p>方法：</p>
-<ul>
-<li><p><strong>&#x3D;&#x3D;多维缩放（MDS）&#x3D;&#x3D;</strong></p>
-</li>
-<li><p>步骤：</p>
-</li>
-<li><p><strong>1. 计算距离矩阵</strong></p>
-<ul>
-<li>首先，计算高维空间中所有数据点对之间的距离，生成一个距离矩阵。这个距离可以是<strong>欧几里得距离（勾股定理）、曼哈顿距离（轴距总和）或其他任何适合数据的距离度量</strong>。</li>
-</ul>
-<p><strong>2. 配置初始化</strong></p>
-<ul>
-<li>在低维空间中随机初始化数据点的位置。这些初始位置将在接下来的优化过程中被调整。</li>
-</ul>
-<p><strong>3. 距离优化</strong></p>
-<ul>
-<li>MDS通过优化过程调整低维空间中点的位置，以使低维空间中的距离尽可能接近高维空间中的距离。优化过程通常使用某种形式的梯度下降方法。</li>
-</ul>
-<p><strong>4. 度量标准</strong></p>
-<ul>
-<li>MDS可以是度量的（metric）或非度量的（non-metric）。度量MDS尝试保持距离的绝对值，而非度量MDS仅尝试保持距离的顺序（即，如果两个点在高维空间中是最近的，那么它们在低维空间中也应该是最近的</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>评估方式：比较降维前后学习器的性能，可视化技术直观</p>
-</li>
-</ul>
-<h4 id="主成分分析（PCA）"><a href="#主成分分析（PCA）" class="headerlink" title="主成分分析（PCA）"></a>主成分分析（PCA）</h4><ul>
-<li><p>最常用的降维方法之一</p>
-</li>
-<li><p>核心思想：用一个超平面对所有样本进行恰当的表达</p>
-<ul>
-<li>最近重构性：样本点到这个超平面距离足够近</li>
-<li>最大可分性：样本点在这个超平面上的投影能尽可能分开</li>
-</ul>
-</li>
-<li><p>方法：寻找数据的主要变动方向。它找到了一个新的坐标系统，这个坐标系统的基向量（称为主成分）按照数据方差的大小排序，方差越大的方向（也就是越能分得开的方向）能够捕获更多的数据信息。</p>
-</li>
-</ul>
-<p><strong>标准化数据</strong>：首先，通常需要对原始数据进行标准化处理，使得每个特征的平均值为0，标准差为1。这一步是为了防止原始数据中不同的量纲对结果产生影响。</p>
-<p><strong>构建协方差矩阵</strong>：接着，计算数据的协方差矩阵。协方差矩阵描述了数据中各个特征之间的相互关系，以及它们各自的变动情况。</p>
-<p><strong>计算特征值和特征向量</strong>：对协方差矩阵进行特征分解，得到一系列特征值和对应的特征向量。特征向量指示了数据的主要变动方向，而特征值的大小表示了在对应方向上的变动程度（即方差）。</p>
-<p><strong>选择主成分</strong>：按照特征值的大小，选择最大的几个特征值对应的特征向量作为主成分。这些主成分构成了新的坐标系统，按照数据变异程度（方差）的重要性排序。</p>
-<p><strong>构造新的数据表示</strong>：最后，将原始数据投影到这些主成分上，得到降维后的数据。这些主成分构成的超平面是原始数据在低维空间中的最佳线性表示。</p>
-<h4 id="核化线性降维-（KPCA）"><a href="#核化线性降维-（KPCA）" class="headerlink" title="**&#x3D;&#x3D;核化线性降维&#x3D;&#x3D;**（KPCA）"></a>**&#x3D;&#x3D;核化线性降维&#x3D;&#x3D;**（KPCA）</h4><p>（没咋看懂qwq，好像是结合了PCA和线性判别分析法（LDA）的一种降维方法，好高级）</p>
-<h4 id="流形学习"><a href="#流形学习" class="headerlink" title="流形学习"></a>流形学习</h4><p><strong>（参见西瓜书第十章）</strong></p>
-<p>借鉴了拓扑流形概念的降维方法（？？？）</p>
-<h5 id="等度量映射"><a href="#等度量映射" class="headerlink" title="等度量映射"></a>等度量映射</h5><h5 id="局部线性嵌入"><a href="#局部线性嵌入" class="headerlink" title="局部线性嵌入"></a>局部线性嵌入</h5><hr>
-<h2 id="3-关于特征的描述"><a href="#3-关于特征的描述" class="headerlink" title="3. 关于特征的描述"></a>3. 关于特征的描述</h2><ul>
-<li><strong>特征提取：数据-&gt;信息</strong>。</li>
-<li>例如，在文本数据中，可以从文本中提取词频、句子长度等特征；在图像数据中，可以提取边缘、角点等图像特征。</li>
-</ul>
-<h3 id="数据等级"><a href="#数据等级" class="headerlink" title="数据等级"></a>数据等级</h3><table>
-<thead>
-<tr>
-<th>等级</th>
-<th>属性</th>
-<th>例子</th>
-<th>描述性统计</th>
-<th>图表</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>定类</td>
-<td>离散, 无序</td>
-<td>种类</td>
-<td>频率&#x2F;占比, 众数</td>
-<td>条形图, 饼图</td>
-</tr>
-<tr>
-<td>定序</td>
-<td>有序类别, 比较</td>
-<td>考试等级</td>
-<td>频率, 众数, 中位数, 百分数</td>
-<td>条形图，饼图，茎叶图</td>
-</tr>
-<tr>
-<td>定距</td>
-<td>数字差别有意义</td>
-<td>摄氏度,年份</td>
-<td>频率,众数,中位数,均值,标准差</td>
-<td>条形图, 饼图, 茎叶图, 箱线图, 直方图</td>
-</tr>
-<tr>
-<td>定比</td>
-<td>连续, 可以做加减乘除运算</td>
-<td>金钱, 重量</td>
-<td>均值, 标准差</td>
-<td>直方图, 箱线图</td>
-</tr>
-</tbody></table>
-<h4 id="定类数据（Nominal-Data）"><a href="#定类数据（Nominal-Data）" class="headerlink" title="定类数据（Nominal Data）"></a>定类数据（Nominal Data）</h4><ul>
-<li><strong>属性</strong>：数据是离散的且无序的。这意味着数据用于标记或分类，但分类之间没有顺序。</li>
-<li><strong>例子</strong>：种类（如血型、性别、国籍）。</li>
-<li><strong>描述性统计</strong>：频率（各类别出现的次数）、占比（各类别在总数中的比例）、众数（出现次数最多的类别）。</li>
-<li><strong>图表</strong>：条形图、饼图。</li>
-</ul>
-<h4 id="定序数据（Ordinal-Data）"><a href="#定序数据（Ordinal-Data）" class="headerlink" title="定序数据（Ordinal Data）"></a>定序数据（Ordinal Data）</h4><ul>
-<li><strong>属性</strong>：数据是有序类别的，即数据的分类不仅将对象分开，分类之间还有一个明确的排序。</li>
-<li><strong>例子</strong>：考试等级（如A、B、C等级）。</li>
-<li><strong>描述性统计</strong>：频率、众数、中位数（将数据分为上下两半的点）、百分数。</li>
-<li><strong>图表</strong>：条形图、饼图、茎叶图。</li>
-</ul>
-<h4 id="定距数据（Interval-Data）"><a href="#定距数据（Interval-Data）" class="headerlink" title="定距数据（Interval Data）"></a>定距数据（Interval Data）</h4><ul>
-<li><strong>属性</strong>：数据是数字的，且数字之间的差别是有意义的。但是没有真正的“零点”，这意味着不能对数据进行乘除运算。</li>
-<li><strong>例子</strong>：摄氏度、年份。</li>
-<li><strong>描述性统计</strong>：频率、众数、中位数、均值（算术平均值）、标准差（数据分布的程度）。</li>
-<li><strong>图表</strong>：条形图、饼图、茎叶图、箱线图、直方图。</li>
-</ul>
-<h4 id="定比数据（Ratio-Data）"><a href="#定比数据（Ratio-Data）" class="headerlink" title="定比数据（Ratio Data）"></a>定比数据（Ratio Data）</h4><ul>
-<li><strong>属性</strong>：数据是连续的，可以进行加减乘除运算。这是因为定比数据有一个真正的零点。</li>
-<li><strong>例子</strong>：金钱、重量。</li>
-<li><strong>描述性统计</strong>：均值、标准差。</li>
-<li><strong>图表</strong>：直方图、箱线图。</li>
-</ul>
-<p>某些统计测试和图表只适用于特定类型的数据。了解这些等级可以帮助研究者或数据分析师选择合适的方法来分析他们的数据。</p>
-<h3 id="数据分布"><a href="#数据分布" class="headerlink" title="数据分布"></a>数据分布</h3><h4 id="直方图"><a href="#直方图" class="headerlink" title="直方图"></a>直方图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/3.jpg"></p>
-<h4 id="核密度图"><a href="#核密度图" class="headerlink" title="核密度图"></a>核密度图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/4.png"></p>
-<p>核密度图本质上是根据有限的数据样本，运用核密度函数，对整体数据的密度进行估计；即已知有限的数据样本和一个核函数，输出整体数据的概率密度，并通过图形展示出结果。</p>
-<p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/5.png"></p>
-<h4 id="箱型图"><a href="#箱型图" class="headerlink" title="箱型图"></a>箱型图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/6.png"></p>
-<p>它主要用于反映原始数据分布的特征，还可以进行多组数据分布特征的比 较。箱线图的绘制方法是：先找出一组数据的上边缘、下边缘、中位数和两个四分位数；然后， 连接两个四分位数画出箱体；再将上边缘和下边缘与箱体相连接，中位数在箱体中间。</p>
-<p>箱形图判断异常值的标准以<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9B%E5%88%86%E4%BD%8D%E6%95%B0/0?fromModule=lemma_inlink">四分位数</a>和<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9B%E5%88%86%E4%BD%8D%E8%B7%9D/0?fromModule=lemma_inlink">四分位距</a>为基础，四分位数具有一定的耐抗性，多达25%的数据可以变得任意远而不会很大地扰动四分位数，所以异常值不能对这个标准施加影响，箱形图识别异常值的结果比较客观。由此可见，箱形图在识别异常值方面有一定的优越性。</p>
-<h4 id="饼图"><a href="#饼图" class="headerlink" title="饼图"></a>饼图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/7.png"></p>
-<h4 id="散点图"><a href="#散点图" class="headerlink" title="散点图"></a>散点图</h4><p><img src="/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/8.jpg"></p>
-<p>散点图是指在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90/2625498?fromModule=lemma_inlink">回归分析</a>中，数据点在直角坐标系平面上的<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%9B%BE/10396618?fromModule=lemma_inlink">分布图</a>，散点图表示因变量随<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E8%87%AA%E5%8F%98%E9%87%8F/6895256?fromModule=lemma_inlink">自变量</a>而<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%8F%98%E5%8C%96/33159?fromModule=lemma_inlink">变化</a>的大致趋势，据此可以选择合适的函数<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%AF%B9%E6%95%B0/0?fromModule=lemma_inlink">对数</a>据点进行<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8B%9F%E5%90%88/7505059?fromModule=lemma_inlink">拟合</a>。</p>
-<p>用两组数据构成多个坐标点，考察坐标点的分布，判断两变量之间是否存在某种关联或总结坐标点的分布模式。散点图将序列显示为一组点。值由点在<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%BE%E8%A1%A8/1252386?fromModule=lemma_inlink">图表</a>中的位置表示。类别由图表中的不同标记表示。<strong>散点图通常用于比较跨类别的聚合数据。（描述变量之间的关系）</strong></p>
-<h2 id="4-参考备忘"><a href="#4-参考备忘" class="headerlink" title="4. 参考备忘"></a>4. 参考备忘</h2><p><a target="_blank" rel="noopener" href="https://builtin.com/articles/feature-engineering">Feature Engineering Explained | Built In</a></p>
-<p>西瓜书</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/563337436?utm_id=0">特征工程总结 - 知乎 (zhihu.com)</a></p>
-<p><a target="_blank" rel="noopener" href="https://builtin.com/data-science/skewed-data">What Is Skewed Data? How It Affects Statistical Models | Built In</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014765410/article/details/87990616">机器学习（周志华）: chapter 11 特征选择与稀疏学习_压缩感知字典学习-CSDN博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.zhihu.com/tardis/zm/art/82622940?source_id=1003">机器学习 | 近端梯度下降法 (proximal gradient descent) (zhihu.com)</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/30/%E7%89%B9%E5%BE%81%E5%B7%A5%E7%A8%8B/" data-id="clw1dxu46001w1suhcqy5ce8w" data-title="特征工程" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-win11-annoyances-collection" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2024/04/30/win11-annoyances-collection/" class="article-date">
-  <time class="dt-published" datetime="2024-04-29T17:09:27.000Z" itemprop="datePublished">2024-04-30</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/">技术备忘</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/04/30/win11-annoyances-collection/">win11_annoyances collection</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h2 id="1-win-V不显示剪切板历史"><a href="#1-win-V不显示剪切板历史" class="headerlink" title="1 win+V不显示剪切板历史"></a>1 win+V不显示剪切板历史</h2><p>试试Fn+win+V，天选3紧凑布局是这样的。</p>
-<h2 id="2-系统中文输入法符号全是英文的"><a href="#2-系统中文输入法符号全是英文的" class="headerlink" title="2 系统中文输入法符号全是英文的"></a>2 系统中文输入法符号全是英文的</h2><p>原因是开启了中&#x2F;英文标点切换，Ctrk+句点可以切换回来。</p>
-<p>键盘相关设置右键点击导航栏的”中&#x2F;英“可以进入。</p>
-<p><img src="/2024/04/30/win11-annoyances-collection/image-20240430011629718.png" alt="就像这样"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2024/04/30/win11-annoyances-collection/" data-id="clw1dxu3v000s1suh1p9kdlns" data-title="win11_annoyances collection" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/windows/" rel="tag">windows</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
+    <a class="extend prev" rel="prev" href="/">&laquo; 上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/">下一页 &raquo;</a>
   </nav>
 
 </section>
@@ -942,7 +472,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL-writing/" rel="tag">TOEFL_writing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" rel="tag">月计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/" rel="tag">-技术备忘</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%9A%8F%E7%AC%94%E5%BD%92%E6%A1%A3/" rel="tag">-随笔归档</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Linux/" rel="tag">Linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Shell/" rel="tag">Shell</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/TOEFL-writing/" rel="tag">TOEFL_writing</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/os/" rel="tag">os</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/windows/" rel="tag">windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" rel="tag">月计划</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" rel="tag">深度学习</a></li></ul>
     </div>
   </div>
 
@@ -952,7 +482,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TOEFL-writing/" style="font-size: 20px;">TOEFL_writing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/os/" style="font-size: 15px;">os</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" style="font-size: 10px;">月计划</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a>
+      <a href="/tags/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/" style="font-size: 10px;">-技术备忘</a> <a href="/tags/%E9%9A%8F%E7%AC%94%E5%BD%92%E6%A1%A3/" style="font-size: 10px;">-随笔归档</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/Shell/" style="font-size: 10px;">Shell</a> <a href="/tags/TOEFL-writing/" style="font-size: 20px;">TOEFL_writing</a> <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/os/" style="font-size: 15px;">os</a> <a href="/tags/windows/" style="font-size: 10px;">windows</a> <a href="/tags/%E6%9C%88%E8%AE%A1%E5%88%92/" style="font-size: 10px;">月计划</a> <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" style="font-size: 10px;">深度学习</a>
     </div>
   </div>
 
@@ -974,23 +504,23 @@
       <ul>
         
           <li>
+            <a href="/2024/05/22/%E5%85%B3%E4%BA%8E%E9%AB%98%E6%95%88%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83%EF%BC%88%E7%95%99%E6%A1%A3%EF%BC%89/">关于高效工作的一些思考（留档）</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/18/TOEFL-notes-listening-lecture/">TOEFL-notes-listening lecture</a>
+          </li>
+        
+          <li>
+            <a href="/2024/05/16/Git%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E2%80%94pr%E7%9B%B8%E5%85%B3/">Git常用操作—pr相关</a>
+          </li>
+        
+          <li>
             <a href="/2024/05/07/wsl%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">wsl的操作记录</a>
           </li>
         
           <li>
             <a href="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/">AI_贝叶斯网络</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/06/OS%E7%AC%94%E8%AE%B0-CH-8-%E6%AD%BB%E9%94%81/">OS笔记-CH-8-死锁</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/05/gdb%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">gdb的基本使用方法</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/04/TOEFL-notes-%E7%BB%BC%E5%90%88%E5%86%99%E4%BD%9C%EF%BC%885-4%EF%BC%89/">TOEFL_notes_综合写作（5.4）(未整理)</a>
           </li>
         
       </ul>
