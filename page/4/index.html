@@ -73,6 +73,212 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-OS笔记-CH-7-同步" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/04/29/OS%E7%AC%94%E8%AE%B0-CH-7-%E5%90%8C%E6%AD%A5/" class="article-date">
+  <time class="dt-published" datetime="2024-04-29T00:41:40.000Z" itemprop="datePublished">2024-04-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%8A%80%E6%9C%AF%E5%A4%87%E5%BF%98/">技术备忘</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/04/29/OS%E7%AC%94%E8%AE%B0-CH-7-%E5%90%8C%E6%AD%A5/">OS笔记 CH_7 同步</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h2 id="问题背景"><a href="#问题背景" class="headerlink" title="问题背景"></a>问题背景</h2><p>多道程序设计中，进程可以并发&#x2F;并行执行，需要维护数据一致性。</p>
+<p>生产者-消费者解决方案（同时更新缓冲区-有界缓冲区同步），修改<code>counter</code>的操作非原子，会导致竞争状态。</p>
+<p>共享内存，后执行的进程可能会覆盖先执行进程的劳动成果，引发竞争。</p>
+<h2 id="临界区"><a href="#临界区" class="headerlink" title="临界区"></a>临界区</h2><ul>
+<li>每个进程都有的一段代码</li>
+<li>在此更改公共变量、更新表、写入文件</li>
+<li>同一时刻只能有一个进程处于临界区</li>
+</ul>
+<h3 id="临界区问题解决访问的要求"><a href="#临界区问题解决访问的要求" class="headerlink" title="临界区问题解决访问的要求"></a>临界区问题解决访问的要求</h3><ul>
+<li>互斥</li>
+<li>推进</li>
+<li>有限等待</li>
+</ul>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><h4 id="硬件同步"><a href="#硬件同步" class="headerlink" title="硬件同步"></a>硬件同步</h4><p>p39</p>
+<ul>
+<li><p><code>test_and_set()</code></p>
+<ul>
+<li>若lock&#x3D;&#x3D;0，则可进临界区，test_and_set&#x3D;0，走你</li>
+</ul>
+</li>
+<li><p><code>compare_and_swap()</code></p>
+<ul>
+<li>若lock&#x3D;&#x3D;1，则临界区有进程，等锁空闲了就进去。离开的时候记得lock置零</li>
+</ul>
+</li>
+</ul>
+<p>互斥实现了，但是<code>test_and_set</code>不满足有限等待&#x3D;&#x3D;（为什么？ 因为）&#x3D;&#x3D;</p>
+<p>所以添加一个进程退出临界区时直接安排 紧接着的下一个进入</p>
+<p><img src="/2024/04/29/OS%E7%AC%94%E8%AE%B0-CH-7-%E5%90%8C%E6%AD%A5/1.png"></p>
+<h4 id="互斥锁（mutex）"><a href="#互斥锁（mutex）" class="headerlink" title="互斥锁（mutex）"></a>互斥锁（mutex）</h4><p>互斥锁：一个表示锁是否可用的布尔变量</p>
+<p>保护临界区的方式：</p>
+<ul>
+<li>获取一个锁acquire()</li>
+<li>进入临界区</li>
+<li>释放锁release()</li>
+</ul>
+<p>说明：</p>
+<ul>
+<li><p>这两个函数的调用必须是原子的（通过硬件原子指令，比如compare_and_swap实现）</p>
+</li>
+<li><p>0-临界区不可用   1-临界区可用</p>
+</li>
+<li><p>acquire不了就在这里的while里循环等</p>
+</li>
+</ul>
+<p>评价：</p>
+<ul>
+<li>需要忙等，称为自旋锁</li>
+<li>等待锁无需上下文切换，适用使用锁时间较短的情景</li>
+</ul>
+<h4 id="严格备选"><a href="#严格备选" class="headerlink" title="严格备选"></a>严格备选</h4><p>引入共享变量<code>turn</code>，每个进程离开临界区时，修改<code>turn</code>指定下一个进入临界区的进程</p>
+<p>评价：</p>
+<ul>
+<li>效率不高 - 另一个进程一直在while里忙等，浪费CPU资源</li>
+<li>过于严格 - 同一个进程不能连续两次进入临界区（因为<code>turn</code>在它第一次离开临界区的时候就已经被指向其它进程了）</li>
+<li>违反优先等待 - 如果一个进程因为等待别的资源进不了临界区，它之后的进入临界区的请求因为<code>turn</code>无法被修改所以也被阻塞了</li>
+</ul>
+<h4 id="Peterson解决方案"><a href="#Peterson解决方案" class="headerlink" title="Peterson解决方案"></a>Peterson解决方案</h4><p>纯软件算法设计实现</p>
+<p>引入共享变量<code>turn</code>、<code>interested[2]</code>，前者记录轮到谁，后者记录谁想进</p>
+<p><img src="/2024/04/29/OS%E7%AC%94%E8%AE%B0-CH-7-%E5%90%8C%E6%AD%A5/2.png"></p>
+<p>评价：</p>
+<ul>
+<li><p>优先级反转</p>
+<ul>
+<li><strong>三个任务</strong>：假设有三个任务，分别是高优先级（H）、中优先级（M）和低优先级（L）。</li>
+<li><strong>资源争用</strong>：低优先级任务L首先获取了某个关键的共享资源（如一个互斥锁）。</li>
+<li><strong>高优先级任务阻塞</strong>：此时，高优先级任务H需要访问同一共享资源，但由于L已持有资源，H不能继续执行，因此进入等待状态。</li>
+<li><strong>中优先级任务执行</strong>：由于操作系统的调度策略，中优先级任务M，虽然不需要那个共享资源，但由于它的优先级高于L，所以它获得执行。这使得L无法运行，因此也无法释放资源。</li>
+</ul>
+</li>
+<li><p>死锁（太谦让了卡住了）</p>
+</li>
+<li><p>浪费CPU时间</p>
+</li>
+</ul>
+<h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3><p>互斥锁是一种外部强加的全局控制方案</p>
+<p>信号量是一种内部主动的局部控制方案</p>
+<h4 id="Signal-Wait"><a href="#Signal-Wait" class="headerlink" title="Signal &amp; Wait"></a>Signal &amp; Wait</h4><p>两个原子操作</p>
+<ul>
+<li>wait(S)<ul>
+<li>while S &lt;&#x3D;0 : busy wait</li>
+<li>S–</li>
+</ul>
+</li>
+<li>signal(S)<ul>
+<li>S++ &#x2F;&#x2F;归还信号</li>
+</ul>
+</li>
+</ul>
+<p>缺点：特定执行顺序时可能导致错误，但是由于只在特定顺序出现，难以检测</p>
+<h4 id="类型（2种）"><a href="#类型（2种）" class="headerlink" title="类型（2种）"></a>类型（2种）</h4><ul>
+<li><p>二值信号量：当锁来使，起互斥的作用</p>
+</li>
+<li><p>计数型信号量：反映资源可用量</p>
+<ul>
+<li><p>-1加锁</p>
+</li>
+<li><p>+1解锁</p>
+</li>
+<li><p>与wait和signal的区别</p>
+</li>
+<li><p><strong>信号量操作</strong>：<code>wait</code> 和 <code>signal</code></p>
+<p>信号量是一种广泛使用的同步机制，可以用来控制对共享资源的访问数量。信号量通常用于实现生产者-消费者问题、读写者问题等。</p>
+<ul>
+<li><strong><code>wait</code>（也被称为 <code>P</code> 操作或 <code>down</code> 操作） 拿资源</strong><ul>
+<li>这是一个原子操作，用于减少信号量的值。如果信号量的值大于零，<code>wait</code> 操作会减少它的值并允许线程继续执行。如果信号量的值为零，则执行 <code>wait</code> 操作的线程将被阻塞，直到信号量的值变得可用（即大于零）。</li>
+</ul>
+</li>
+<li><strong><code>signal</code>（也被称为 <code>V</code> 操作或 <code>up</code> 操作） 还资源</strong><ul>
+<li>这是另一个原子操作，用于增加信号量的值。当执行 <code>signal</code> 操作时，如果有线程因为 <code>wait</code> 操作而被阻塞在该信号量上，那么一个（或多个）线程将被解除阻塞，可以继续执行。</li>
+</ul>
+</li>
+</ul>
+<p>信号量的这两个操作通常由多个进程或线程共同完成，他们通过这种方式协作，实现对共享资源的同步访问。</p>
+</li>
+<li><p><strong>互斥锁操作</strong>：加锁和解锁</p>
+<p>互斥锁是用来保护对共享资源的独占访问，确保在任何时候只有一个线程可以访问该资源。</p>
+<ul>
+<li><strong>加锁（Lock）</strong><ul>
+<li>当线程或进程尝试获取互斥锁时，如果该锁未被其他线程持有，它将成功获取锁并继续执行。如果锁已被另一个线程持有，尝试获取锁的线程将被阻塞，直到锁被释放。</li>
+</ul>
+</li>
+<li><strong>解锁（Unlock）</strong><ul>
+<li>持有锁的线程在完成对共享资源的访问后，必须释放锁。这通常是通过解锁操作完成的。解锁后，其他等待该锁的线程可以尝试获取锁。</li>
+</ul>
+</li>
+</ul>
+<p>互斥锁的加锁和解锁通常由单个进程或线程完成，即同一个线程负责加锁和解锁。这保证了资源的独占访问和避免了数据的竞态条件。</p>
+</li>
+<li><p><strong>信号量的<code>wait</code>和<code>signal</code>操作</strong> 通常涉及多个线程或进程，它们共同参与信号量的增减，以协调对共享资源的访问。</p>
+</li>
+<li><p><strong>互斥锁的加锁和解锁操作</strong> 通常由单一线程或进程执行，确保对特定资源的独占访问。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h4><p>看黑皮书吧。还没看</p>
+<h3 id="管程"><a href="#管程" class="headerlink" title="管程"></a>管程</h3><h4 id="管程-1"><a href="#管程-1" class="headerlink" title="管程"></a>管程</h4><ul>
+<li><p>一种高级程序设计语言结构（面向对象），功能&#x3D;&#x3D;信号量，易于控制</p>
+</li>
+<li><p>被作为程序库实现</p>
+</li>
+<li><p>管程中一次只能有一个进程处于活跃状态</p>
+</li>
+</ul>
+<h4 id="管程的结构"><a href="#管程的结构" class="headerlink" title="管程的结构"></a>管程的结构</h4><p>shared data + operations + init code</p>
+<p>↑</p>
+<p>entry queue（进程想进管程，要一个个排队）</p>
+<ul>
+<li>条件变量<ul>
+<li>管程里的一种特殊的共享变量</li>
+<li>只有wait()和signal()可以调用</li>
+</ul>
+</li>
+</ul>
+<h4 id="管程的特点"><a href="#管程的特点" class="headerlink" title="管程的特点"></a>管程的特点</h4><ul>
+<li><strong>局部性数据变量的封装性</strong>：局部数据变量只能被管程内部的程序访问，外部程序无法直接访问这些变量。这一特性提供了数据的封装性和保护，确保数据的一致性和安全性。</li>
+<li><strong>互斥性</strong>：进程通过调用管程内的一个程序来进入管程。在任何给定的时间，只有一个进程可以在管程中执行。这提供了互斥访问资源的能力，是同步机制的关键组成部分，防止了并发执行的进程中的数据竞争。</li>
+<li><strong>有序性</strong>：管程内部的过程调用和执行都是有序的，这意味着管程内的程序执行具有确定性，按照特定的程序逻辑顺序执行。这有助于实现进程间的协调和同步。</li>
+</ul>
+<p>​	递进关系</p>
+<h4 id="使用信号量实现管程"><a href="#使用信号量实现管程" class="headerlink" title="使用信号量实现管程"></a>使用信号量实现管程</h4><p>管程函数开头是wait(mutex),结尾是signal(mutex)</p>
+<h4 id="条件变量"><a href="#条件变量" class="headerlink" title="条件变量"></a>条件变量</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2024/04/29/OS%E7%AC%94%E8%AE%B0-CH-7-%E5%90%8C%E6%AD%A5/" data-id="clw1dxu3x000z1suh1wfgfi9i" data-title="OS笔记 CH_7 同步" class="article-share-link"><span class="fa fa-share">分享</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/os/" rel="tag">os</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-关于为什么我开一个博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/04/27/%E5%85%B3%E4%BA%8E%E4%B8%BA%E4%BB%80%E4%B9%88%E6%88%91%E5%BC%80%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/" class="article-date">
@@ -282,50 +488,6 @@
 
 
   
-    <article id="post-马提亚尔" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/08/15/%E9%A9%AC%E6%8F%90%E4%BA%9A%E5%B0%94/" class="article-date">
-  <time class="dt-published" datetime="2023-08-14T17:32:51.000Z" itemprop="datePublished">2023-08-15</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E9%9A%8F%E7%AC%94%E5%BD%92%E6%A1%A3/">随笔归档</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/08/15/%E9%A9%AC%E6%8F%90%E4%BA%9A%E5%B0%94/">马提亚尔</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>马提亚尔说回忆过去的生活无异于再活一次。<br>我不知道马提亚尔是谁，但是特别有意思的是前几天我在算旅游账的时候，回想过往十日里每天每顿饭在哪里吃了啥时也发过完全类似的感慨。其实值得人们感慨的道理也就那么几个吧，只不过有些人比较有名，比如马提亚尔（再说一次我不知道他是谁），他的感慨就留下来了。我比较没有名，我的感慨就以我也发过和马提亚尔一样的感慨的形式留了下来。<br>我在说什么呢？</p>
-<p><img src="/2023/08/15/%E9%A9%AC%E6%8F%90%E4%BA%9A%E5%B0%94/blog\vv_blog\source_posts\马提亚尔\1.png"></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/08/15/%E9%A9%AC%E6%8F%90%E4%BA%9A%E5%B0%94/" data-id="clw1dxu45001v1suhg83bdn0i" data-title="马提亚尔" class="article-share-link"><span class="fa fa-share">分享</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
   <nav id="page-nav">
@@ -370,7 +532,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/07/">July 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/04/">April 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/09/">September 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/08/">August 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/04/">April 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/02/">February 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/11/">November 2022</a></li></ul>
     </div>
   </div>
 
@@ -381,6 +543,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/07/17/memo/">memo</a>
+          </li>
         
           <li>
             <a href="/2024/05/22/%E5%85%B3%E4%BA%8E%E9%AB%98%E6%95%88%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E6%80%9D%E8%80%83%EF%BC%88%E7%95%99%E6%A1%A3%EF%BC%89/">关于高效工作的一些思考（留档）</a>
@@ -396,10 +562,6 @@
         
           <li>
             <a href="/2024/05/07/wsl%E7%9A%84%E6%93%8D%E4%BD%9C%E8%AE%B0%E5%BD%95/">wsl的操作记录</a>
-          </li>
-        
-          <li>
-            <a href="/2024/05/07/AI-%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C/">AI_贝叶斯网络</a>
           </li>
         
       </ul>
